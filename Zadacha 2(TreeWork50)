@@ -1,0 +1,19 @@
+//Дано бинарное дерево и указатель корень дерева P1. Необходимо вывести информационные поля вершин, находящихся на K-м уровне. 
+//Корень дерева находится на уровне 0, его непосредственные соседи на уровне 1 и т.д.
+#include "pt4.h"
+using namespace std;
+void Print(PNode tree, int Level, int Count)
+{
+    if (!tree) return;
+    if (Level == 0) pt << tree->Data;
+    Print(tree->Left, Level - 1, Count);
+    Print(tree->Right, Level - 1, Count);
+}
+void Solve()
+{
+    Task("TreeWork50");
+    PNode Tree;
+    int k, Count = 0;
+    pt >> Tree >> k;
+    Print(Tree, k, Count);
+}
